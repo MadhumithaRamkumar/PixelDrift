@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Pixel Drift</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top " style="color: black; background-color: #3b848a; ">
+        <div class="container">
+            <div class="navbar-header" style="color: black;">
+                <button style="color: black;" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+              @*  @Html.ActionLink("Pixel Drift", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse" style="color: black;">
+                <ul class="nav navbar-nav">
+                    <li style="color: black;"> @Html.ActionLink("Home", "Index", "Home", new { id = "Home", style = "color: Black" })</li>
+                    <li style="color: black;">@Html.ActionLink("About", "About", "Home", new { id = "About", style = "color: Black" })</li>
+                    <li style="color: black;">@Html.ActionLink("Contact", "Contact", "Home", new { id = "Contact", style = "color: Black" })</li>
+
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        @*<footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>*@
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
