@@ -18,7 +18,7 @@ namespace PixelDrift.Controllers
         public HomeController()
         {
 
-            // _dbContext = new AppDbContext("Server=tcp:pixeldrift-server.database.windows.net,1433;Initial Catalog=pixeldrift_db;Persist Security Info=False;User ID=sqladmin;Password=Pixeldrift@1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+           
             _dbContext = new AppDbContext();
         }
 
