@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Windows.Forms;
+using Microsoft.WindowsAzure.Storage.Blob;
 using PixelDrift.Data;
 using PixelDrift.Models;
 
@@ -14,6 +15,8 @@ namespace PixelDrift.Controllers
     {
 
         private AppDbContext _dbContext;
+        AzureBlobService _blobStorageService = new AzureBlobService();
+
 
         public HomeController()
         {
@@ -29,7 +32,7 @@ namespace PixelDrift.Controllers
             return View(new User_login());
         }
 
-        public ActionResult Contact()
+        public ActionResult DashboardTest()
         {
             return View();
 
@@ -100,5 +103,28 @@ namespace PixelDrift.Controllers
 
         }
 
+        public ActionResult Upload()
+        {
+            CloudBlobContainer blobConatiner = _blobStorageService.GetCloudBlobContainer();
+            List<string> blobs = new List<string>();
+            foreach( var blobItem in blobConatiner.ListBlobs())
+            { blobs.Add(blobItem.Uri.ToString());
+            }
+            return View(blobs);
+        }
+
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase image)
+        {
+            if(image!=null)
+                if(image.ContentLength>0)
+                {
+                    CloudBlobContainer blobContainer = _blobStorageService.GetCloudBlobContainer();
+                    CloudBlockBlob blob = blobContainer.GetBlockBlobReference(image.FileName);
+                    blob.UploadFromStream(image.InputStream);
+                    
+                }
+            return RedirectToAction("Upload");
+        }
     }
 }
