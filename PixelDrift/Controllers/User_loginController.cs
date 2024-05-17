@@ -13,7 +13,7 @@ namespace PixelDrift.Controllers
     {
         // GET: api/User_login
   [HttpGet]
-            public List<User_login> Get()
+        public List<User_login> Get()
         {
             User_loginDBRep dbRep = new User_loginDBRep();
 
@@ -30,6 +30,7 @@ namespace PixelDrift.Controllers
         // POST: api/User_login
         public void Post([FromBody]string value)
         {
+
         }
 
         // PUT: api/User_login/5
