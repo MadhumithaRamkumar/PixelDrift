@@ -13,7 +13,32 @@
     }
 </p>
 
-<ul style="list-style-type:none ;padding:0;">
 
-</ul>
+
+    <ul style=""list-style-type":none:padding:0;">
+    if(@Model!=null)
+        @foreach(var item in Model)
+                {
+    <li>
+                    <img src="@item" alt="ïmage" width="100" height="100" />
+                    <a id="@item" href="#" onclick="deleteImage('@item');">Delete</a>
+    "
+                </li>
+      
+    }
+
+    </ul>
+
+    <script>
+        function deleteImage
+            (item) {
+            var url = "/Home/DeleteImage";
+            $.post(url, { Name: item }, function (data) {
+                window.location.href = "/Home/Upload";
+                alert(data);
+            });
+        }
+    </script>
+
+
 

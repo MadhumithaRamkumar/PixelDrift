@@ -16,13 +16,16 @@ namespace PixelDrift.Controllers
 
         private AppDbContext _dbContext;
         AzureBlobService _blobStorageService = new AzureBlobService();
+        public User_login current_User = new User_login();
+
 
 
         public HomeController()
         {
 
-           
+
             _dbContext = new AppDbContext();
+           
         }
 
 
@@ -49,12 +52,21 @@ namespace PixelDrift.Controllers
         [HttpPost]
         public ActionResult Index(User_login u)
         {
-            
+             
               var user= _dbContext.user_Logins.Where(x=>x.User_Id == u.User_Id).Count();
+           
 
             if (user > 0)
             {
-                return RedirectToAction("Dashboard");
+                current_User = _dbContext.user_Logins.Where(x => x.User_Id == u.User_Id).First();
+
+                if (current_User.Role == "Admin")
+                    return RedirectToAction("Dashboard");
+                else
+                {
+                    TempData["UserId"] = current_User.User_Id;
+                    return RedirectToAction("DashboardUser");
+                }  // return RedirectToAction("DashboardUser");
             }
             else
             {
@@ -64,10 +76,7 @@ namespace PixelDrift.Controllers
             }
         }
 
-        //public ActionResult CreateUser()
-        //{
-        //    return View();
-        //}
+       
 
         [HttpPost]
         public ActionResult CreateUser(User_login u)
@@ -90,15 +99,18 @@ namespace PixelDrift.Controllers
                     
             }
             return View(u);
-
-
-        
-
-
         }
 
         public ActionResult Dashboard()
         {
+            return View();
+
+        }
+
+        public ActionResult DashboardUser(string user)
+        {
+            var message = TempData["UserId"] as string;
+            ViewData["UserId"]= message;
             return View();
 
         }
@@ -126,5 +138,20 @@ namespace PixelDrift.Controllers
                 }
             return RedirectToAction("Upload");
         }
+
+        [HttpPost]
+
+        public string   DeleteImage(String Name)
+        {
+            Uri uri = new Uri(Name);
+            string fileName = System.IO.Path.GetFileName(uri.LocalPath);
+
+            CloudBlobContainer blobContainer = _blobStorageService.GetCloudBlobContainer();
+            CloudBlockBlob blob = blobContainer.GetBlockBlobReference(fileName);
+
+            blob.Delete();
+            return "file Deleted";
+        }
+
     }
 }

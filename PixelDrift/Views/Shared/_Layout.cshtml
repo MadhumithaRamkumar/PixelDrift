@@ -7,7 +7,8 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body background="../image/test.jpeg" >
+<div id="image"></div>
+<body background="../image/test.jpeg" ;>
     <div class="navbar navbar-inverse navbar-fixed-top " style="color: black; background-color: #3b848a; ">
         <div class="container">
             <div class="navbar-header" style="color: black;">
@@ -16,7 +17,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-              @*  @Html.ActionLink("Pixel Drift", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                @*  @Html.ActionLink("Pixel Drift", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse" style="color: black;">
                 <ul class="nav navbar-nav">
@@ -25,7 +26,7 @@
                     <li style="color: black;">@Html.ActionLink("Contact", "Contact", "Home", new { id = "Contact", style = "color: Black" })</li>
 
 
-                    
+
                 </ul>
             </div>
         </div>
@@ -34,8 +35,8 @@
         @RenderBody()
         <hr />
         @*<footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>*@
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>*@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
@@ -43,3 +44,8 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+<script>#image {
+        background: url('../image/test.jpeg');
+        background-size: contain;
+    }</script>
+

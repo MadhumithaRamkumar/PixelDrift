@@ -354,7 +354,7 @@
     <Content Include="Views\Home\test.jpeg" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\Upload.cshtml" />
-    <Content Include="Views\Home\DashboardTest.cshtml" />
+    <Content Include="Views\Home\DashboardUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
