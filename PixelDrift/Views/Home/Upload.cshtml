@@ -15,14 +15,15 @@
 
 
 
-    <ul style=""list-style-type":none:padding:0;">
-    if(@Model!=null)
+    <ul style="list-style-type:none;padding:0;">
+    
         @foreach(var item in Model)
-                {
+        {
+            //if (@Model != null)
     <li>
                     <img src="@item" alt="ïmage" width="100" height="100" />
-                    <a id="@item" href="#" onclick="deleteImage('@item');">Delete</a>
-    "
+                @*    <a id="@item" href="#" onclick="deleteImage('@item');">Delete</a>*@
+    
                 </li>
       
     }

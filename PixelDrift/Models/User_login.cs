@@ -14,6 +14,12 @@ namespace PixelDrift.Models
     
     public partial class User_login
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User_login()
+        {
+            this.ImageSaves = new HashSet<ImageSave>();
+        }
+    
         public string User_Id { get; set; }
         public string Password { get; set; }
         public string First_Name { get; set; }
@@ -21,5 +27,8 @@ namespace PixelDrift.Models
         public string Email_ID { get; set; }
         public string Role { get; set; }
         public int tab_Id { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ImageSave> ImageSaves { get; set; }
     }
 }

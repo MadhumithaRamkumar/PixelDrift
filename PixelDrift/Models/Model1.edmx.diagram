@@ -6,7 +6,9 @@
     <edmx:Diagrams>
       <Diagram DiagramId="80c2fb60ca1e4e7c8fd7b7fcd500437d" Name="Diagram1">
         <EntityTypeShape EntityType="pixeldrift_dbModel.User_login" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="pixeldrift_dbModel.Person" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="pixeldrift_dbModel.ImageSave" Width="1.5" PointX="3.875" PointY="0.75" />
+        <EntityTypeShape EntityType="pixeldrift_dbModel.database_firewall_rules" Width="1.5" PointX="3.375" PointY="3.75" />
+        <AssociationConnector Association="pixeldrift_dbModel.fk_tab_Id" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
