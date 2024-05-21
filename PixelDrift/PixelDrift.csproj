@@ -366,6 +366,12 @@
     <Content Include="Views\Home\Share.cshtml" />
     <Content Include="Views\Home\MyAction.cshtml" />
     <Content Include="Views\Home\ShareName.cshtml" />
+    <Content Include="Views\Home\ViewImage.cshtml" />
+    <Content Include="Views\User_login\Create.cshtml" />
+    <Content Include="Views\User_login\Delete.cshtml" />
+    <Content Include="Views\User_login\Details.cshtml" />
+    <Content Include="Views\User_login\Edit.cshtml" />
+    <Content Include="Views\User_login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
