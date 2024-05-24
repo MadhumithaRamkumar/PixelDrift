@@ -6,12 +6,87 @@
     ViewBag.Title = "DashboardUser";
 }
 
-<h2>DashboardUser </h2>
 
-@{ 
-    var data = ViewData["UserId"];
+
+@{
+    var data = TempData["UserId"];
 }
 
 
-<h3> Welcome @data</h3>
+<h3> Welcome @data to Pixel Drift</h3>
 
+
+<div class="row row-no-gutters">
+    @using (Html.BeginForm("Upload", "Home"))
+    {
+        <div class="form-group">
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-default">Add Files</button>
+            </div>
+        </div>
+    }
+</div>
+<br />
+<div class="row">
+    @using (Html.BeginForm("Delete", "Home"))
+    {
+        <div class="form-group">
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-default">Remove Files</button>
+            </div>
+        </div>
+    }
+
+</div>
+
+<br />
+
+
+
+<div class="row">
+    @using (Html.BeginForm("ShareName", "Home"))
+    {
+        <div class="form-group">
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-default">Share Files</button>
+            </div>
+        </div>
+    }
+    </div>
+
+<br />
+
+<div class="row">
+    @using (Html.BeginForm("ViewImage", "Home"))
+        {
+    <div class="form-group">
+        <div class="col-sm-4">
+            <button type="submit" class="btn btn-default">View Files</button>
+        </div>
+    </div>
+    }
+</div>
+
+<br />
+<div class="row">
+    @*@using (Html.BeginForm("LogOut", "Home"))
+        {*@
+    <div class="form-group">
+        <div class="col-sm-4">
+            <button type="submit" class="btn btn-default">Download Files</button>
+        </div>
+    </div>
+    @*}*@
+
+</div>
+<br />
+<div class="row">
+    @using (Html.BeginForm("LogOut", "Home"))
+    {
+        <div class="form-group">
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-default">Log Out</button>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "MyAction";
+}
+
+<h2>MyAction</h2>
+
+<ul style="list-style-type:none;padding:0;">
+
+    @foreach (var item in Model)
+    {
+        //if (@Model != null)
+        <li>
+            <img src="@item" alt="ïmage" width="100" height="100" />
+            @*    <a id="@item" href="#" onclick="deleteImage('@item');">Delete</a>*@
+
+        </li>
+
+    }
+
+</ul>
+
+<script>
+        function deleteImage
+            (item) {
+            var url = "/Home/DeleteImage";
+            $.post(url, { Name: item }, function (data) {
+                window.location.href = "/Home/Upload";
+                alert(data);
+            });
+        }
+</script>
+
+
+

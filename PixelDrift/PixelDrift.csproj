@@ -307,6 +307,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\database_firewall_rules.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ImageSave.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -322,6 +328,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\MyModel.cs" />
     <Compile Include="Models\User_login.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -355,6 +362,16 @@
     <Content Include="Web.config" />
     <Content Include="Views\Home\Upload.cshtml" />
     <Content Include="Views\Home\DashboardUser.cshtml" />
+    <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Home\Share.cshtml" />
+    <Content Include="Views\Home\MyAction.cshtml" />
+    <Content Include="Views\Home\ShareName.cshtml" />
+    <Content Include="Views\Home\ViewImage.cshtml" />
+    <Content Include="Views\User_login\Create.cshtml" />
+    <Content Include="Views\User_login\Delete.cshtml" />
+    <Content Include="Views\User_login\Details.cshtml" />
+    <Content Include="Views\User_login\Edit.cshtml" />
+    <Content Include="Views\User_login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

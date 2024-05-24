@@ -26,6 +26,7 @@ namespace PixelDrift.Models
         }
     
         public virtual DbSet<User_login> User_login { get; set; }
-        public virtual DbSet<Person> Persons { get; set; }
+        public virtual DbSet<ImageSave> ImageSaves { get; set; }
+        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
     }
 }

@@ -18,6 +18,8 @@ namespace PixelDrift.Data
 
         public IDbSet<User_login> user_Logins { get; set; }
         public IDbSet<Person> Persons { get; set; }
+
+        public IDbSet<ImageSave> ImageSave { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
