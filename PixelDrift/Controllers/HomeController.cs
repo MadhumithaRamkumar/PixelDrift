@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -7,6 +8,9 @@ using System.Windows.Forms;
 using Microsoft.WindowsAzure.Storage.Blob;
 using PixelDrift.Data;
 using PixelDrift.Models;
+using System;
+using System.IO;
+using System.Text;
 
 
 namespace PixelDrift.Controllers
@@ -216,6 +220,53 @@ namespace PixelDrift.Controllers
             return RedirectToAction("Delete");
         }
 
+        // Download
+
+        public ActionResult DownloadImage()
+        {
+            string user_blob = (string)Session["User"];
+            CloudBlobContainer blobConatiner = _blobStorageService.GetCloudBlobContainer();
+            List<string> fileName = new List<string>();
+
+            fileName = _dbContext.ImageSave.Where(x => x.User_Id == user_blob).Select(p => p.FileName).ToList();
+
+
+            List<string> blobs = new List<string>();
+            foreach (var blobItem in blobConatiner.ListBlobs())
+            {
+                foreach (var name in fileName)
+                    if (blobItem.Uri.ToString().Contains(name))
+                        blobs.Add(blobItem.Uri.ToString());
+            }
+            return View(blobs);
+        }
+
+        [HttpPost]
+        public ActionResult DownloadImage(HttpPostedFileBase image)
+        {
+
+
+
+            if (image != null)
+                if (image.ContentLength > 0)
+                {
+                    CloudBlobContainer blobContainer = _blobStorageService.GetCloudBlobContainer();
+                    CloudBlockBlob blob = blobContainer.GetBlockBlobReference(image.FileName);
+                    blob.UploadFromStream(image.InputStream);
+                    ImageSave imagedetails = new ImageSave();
+                    imagedetails.User_Id = (string)Session["User"];
+                    imagedetails.FileName = image.FileName;
+                 
+
+
+
+                }
+            return RedirectToAction("DownloadImage");
+        }
+
+
+
+
         //View Images code
 
         public ActionResult ViewImage()
@@ -271,6 +322,26 @@ namespace PixelDrift.Controllers
 
             blob.Delete();
             return "file Deleted";
+        }
+
+
+        [HttpPost]
+
+        public string Download(String Name)
+        {
+            Uri uri = new Uri(Name);
+            string fileName = System.IO.Path.GetFileName(uri.LocalPath);
+
+            CloudBlobContainer blobContainer = _blobStorageService.GetCloudBlobContainer();
+            CloudBlockBlob blob = blobContainer.GetBlockBlobReference(fileName);
+
+            Stream file = System.IO.File.OpenWrite(@"C:\Users\Madhumitha\Downloads\" + fileName);
+
+            blob.DownloadToStream(file);
+            Console.WriteLine("Download completed!");
+
+     
+            return "file Downloaded";
         }
 
         [HttpPost]
