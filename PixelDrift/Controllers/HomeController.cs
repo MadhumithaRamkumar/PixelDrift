@@ -8,8 +8,6 @@ using System.Windows.Forms;
 using Microsoft.WindowsAzure.Storage.Blob;
 using PixelDrift.Data;
 using PixelDrift.Models;
-using System;
-using System.IO;
 using System.Text;
 
 
@@ -63,7 +61,7 @@ namespace PixelDrift.Controllers
 
             if (user > 0)
             {
-                current_User = _dbContext.user_Logins.Where(x => x.User_Id == u.User_Id).First();
+                current_User = _dbContext.user_Logins.Where(x => x.User_Id == u.User_Id && x.Password==u.Password).First();
                 Session["User"] = u.User_Id;
                 if (current_User.Role == "Admin")
                 {
@@ -335,7 +333,7 @@ namespace PixelDrift.Controllers
             CloudBlobContainer blobContainer = _blobStorageService.GetCloudBlobContainer();
             CloudBlockBlob blob = blobContainer.GetBlockBlobReference(fileName);
 
-            Stream file = System.IO.File.OpenWrite(@"C:\Users\Madhumitha\Downloads\" + fileName);
+            Stream file = System.IO.File.OpenWrite(@"C:\Users\Public\Downloads\" + fileName);
 
             blob.DownloadToStream(file);
             Console.WriteLine("Download completed!");
