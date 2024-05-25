@@ -56,12 +56,12 @@ namespace PixelDrift.Controllers
         public ActionResult Index(User_login u)
         {
              
-              var user= _dbContext.user_Logins.Where(x=>x.User_Id == u.User_Id).Count();
+              var user= _dbContext.user_Logins.Where(x=>x.User_Id == u.User_Id && x.Password == u.Password).Count();
             sessionuser = u.User_Id;
 
             if (user > 0)
             {
-                current_User = _dbContext.user_Logins.Where(x => x.User_Id == u.User_Id && x.Password==u.Password).First();
+                current_User = _dbContext.user_Logins.Where(x => x.User_Id == u.User_Id && x.Password==u.Password).FirstOrDefault();
                 Session["User"] = u.User_Id;
                 if (current_User.Role == "Admin")
                 {
@@ -79,10 +79,14 @@ namespace PixelDrift.Controllers
             }
             else
             {
+                //return Content("<script language='javascript' type='text/javascript'>alert('Incorrect User Name/Password');</script>");
 
-                System.Windows.Forms.MessageBox.Show("Incorrect User Name/Password");
+                //System.Windows.Forms.MessageBox.Show("Incorrect User Name/Password");
+                TempData["Message"] = "Incorrect User Name/Password";
                 return View();
+
             }
+            
         }
 
        

@@ -21,25 +21,24 @@
     {
         <div class="form-group">
             <div class="col-sm-4">
-                <button type="submit" class="btn btn-default">Add Files</button>
+                <button type="submit" class="btn btn-default">Add Photos</button>
             </div>
         </div>
     }
 </div>
-<br />
+
 <div class="row">
     @using (Html.BeginForm("Delete", "Home"))
     {
         <div class="form-group">
             <div class="col-sm-4">
-                <button type="submit" class="btn btn-default">Remove Files</button>
+                <button type="submit" class="btn btn-default">Remove Photos</button>
             </div>
         </div>
     }
 
 </div>
 
-<br />
 
 
 
@@ -48,38 +47,38 @@
     {
         <div class="form-group">
             <div class="col-sm-4">
-                <button type="submit" class="btn btn-default">Share Files</button>
+                <button type="submit" class="btn btn-default">Share Photos</button>
             </div>
         </div>
     }
     </div>
 
-<br />
+
 
 <div class="row">
     @using (Html.BeginForm("ViewImage", "Home"))
         {
     <div class="form-group">
         <div class="col-sm-4">
-            <button type="submit" class="btn btn-default">View Files</button>
+            <button type="submit" class="btn btn-default">View Photos</button>
         </div>
     </div>
     }
 </div>
 
-<br />
 <div class="row">
-    @*@using (Html.BeginForm("LogOut", "Home"))
-        {*@
-    <div class="form-group">
-        <div class="col-sm-4">
-            <button type="submit" class="btn btn-default">Download Files</button>
+    @using (Html.BeginForm("DownloadImage", "Home"))
+    {
+        <div class="form-group">
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-default">Download Photos</button>
+            </div>
         </div>
-    </div>
-    @*}*@
-
+    }
 </div>
-<br />
+
+
+
 <div class="row">
     @using (Html.BeginForm("LogOut", "Home"))
     {

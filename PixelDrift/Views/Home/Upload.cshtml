@@ -3,11 +3,12 @@
     ViewBag.Title = "Upload";
 }
 
-<h2>Upload Images</h2>
+<h2>Upload Photo Page</h2>
 <p>
     @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <input type="file" name="image" />
+        <br />
         <input type="submit" name="upload" />
 
     }
@@ -15,31 +16,41 @@
 
 
 
-    <ul style="list-style-type:none;padding:0;">
-    
-        @foreach(var item in Model)
-        {
-            //if (@Model != null)
+<ul style="list-style-type:none;padding:0;">
+
+    @foreach (var item in Model)
+    {
+        //if (@Model != null)
     <li>
-                    <img src="@item" alt="ïmage" width="100" height="100" />
-                @*    <a id="@item" href="#" onclick="deleteImage('@item');">Delete</a>*@
-    
-                </li>
-      
+        <br />
+        <img src="@item" alt="ïmage" width="100" height="100" />
+
+        @*    <a id="@item" href="#" onclick="deleteImage('@item');">Delete</a>*@
+
+    </li>
+
     }
 
-    </ul>
+</ul>
 
-    <script>
-        function deleteImage
-            (item) {
-            var url = "/Home/DeleteImage";
-            $.post(url, { Name: item }, function (data) {
-                window.location.href = "/Home/Upload";
-                alert(data);
-            });
-        }
-    </script>
+<br />
+
+<div class="form-group">
+    <div class="col-sm-4">
+        <button type="submit" class="btn btn-default" onClick="history.go(-1); return false;">Home</button>
+    </div>
+</div>
+
+<script>
+    function deleteImage
+        (item) {
+        var url = "/Home/DeleteImage";
+        $.post(url, { Name: item }, function (data) {
+            window.location.href = "/Home/Upload";
+            alert(data);
+        });
+    }
+</script>
 
 
 

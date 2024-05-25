@@ -6,7 +6,8 @@
 
 <h2>Manage User Page</h2>
 
-<br /><br />
+<br />
+<br />
 
 @*<p>
         @Html.ActionLink("Create New", "Create")
@@ -17,8 +18,8 @@
             @Html.DisplayNameFor(model => model.User_Id)
         </th>
         @*<th>
-            @Html.DisplayNameFor(model => model.Password)
-        </th>*@
+                @Html.DisplayNameFor(model => model.Password)
+            </th>*@
         <th>
             @Html.DisplayNameFor(model => model.First_Name)
         </th>
@@ -41,8 +42,8 @@
                 @Html.DisplayFor(modelItem => item.User_Id)
             </td>
             @*<td>
-                @Html.DisplayFor(modelItem => item.Password)
-            </td>*@
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.First_Name)
             </td>
@@ -68,14 +69,11 @@
 
 <br />
 
-<div class="row">
-    @using (Html.BeginForm("LogOut", "Home"))
-    {
-        <div class="form-group">
-            <div class="col-sm-4">
-                <button type="submit" class="btn btn-default">Log Out</button>
-            </div>
-        </div>
-    }
 
+<br />
+
+<div class="form-group">
+    <div class="col-sm-4">
+        <button type="submit" class="btn btn-default" onClick="history.go(-1); return false;">Home</button>
+    </div>
 </div>

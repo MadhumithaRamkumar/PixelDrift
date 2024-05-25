@@ -3,7 +3,7 @@
     ViewBag.Title = "DownloadImage";
 }
 
-<h2>DownloadImage</h2>
+<h2>Download Photo Page</h2>
 
 
 
@@ -13,6 +13,7 @@
     {
         //if (@Model != null)
         <li>
+            <br />
             <img src="@item" alt="ïmage" width="100" height="100" />
             <a id="@item" href="#" onclick="deleteImage('@item');">Download</a>
 
@@ -22,15 +23,24 @@
 
 </ul>
 
+
+<br />
+
+<div class="form-group">
+    <div class="col-sm-4">
+        <button type="submit" class="btn btn-default" onClick="history.go(-1); return false;">Home</button>
+    </div>
+</div>
+
 <script>
-        function deleteImage
-            (item) {
-            var url = "/Home/Download";
-            $.post(url, { Name: item }, function (data) {
-                window.location.href = "/Home/DownloadImage";
-                alert(data);
-            });
-        }
+    function deleteImage
+        (item) {
+        var url = "/Home/Download";
+        $.post(url, { Name: item }, function (data) {
+            window.location.href = "/Home/DownloadImage";
+            alert(data);
+        });
+    }
 </script>
 
 
