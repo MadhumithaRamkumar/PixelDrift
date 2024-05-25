@@ -76,14 +76,12 @@
         </div>
     </div>
 
-    <div class="row row-no-gutters">
-        @using (Html.BeginForm("Dashboard", "Home"))
-        {<div class="form-group">
-                <div class="col-sm-4">
-                    <button type="submit" class="btn btn-default">Go to Home</button>
-                </div>
-            </div>
-        }
+    <br />
+
+    <div class="form-group">
+        <div class="col-sm-4">
+            <button type="submit" class="btn btn-default" onClick="history.go(-1); return false;">Home</button>
+        </div>
     </div>
 </div>
 }

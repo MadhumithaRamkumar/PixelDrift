@@ -329,7 +329,7 @@ namespace PixelDrift.Controllers
 
         [HttpPost]
 
-        public string Download(String Name)
+        public string  Download(String Name)
         {
             Uri uri = new Uri(Name);
             string fileName = System.IO.Path.GetFileName(uri.LocalPath);
@@ -343,7 +343,7 @@ namespace PixelDrift.Controllers
             Console.WriteLine("Download completed!");
 
      
-            return "file Downloaded";
+          return "file Downloaded";
         }
 
         [HttpPost]
