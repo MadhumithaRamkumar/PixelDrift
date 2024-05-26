@@ -106,8 +106,9 @@ namespace PixelDrift.Controllers
                 {
                     _dbContext.user_Logins.Add(u);
                     _dbContext.SaveChanges();
-
-                    System.Windows.Forms.MessageBox.Show("User Added Successfully");
+                    TempData["Message"] = "User Added Successfully !!!";
+                 
+                    //System.Windows.Forms.MessageBox.Show("User Added Successfully");
                     return RedirectToAction("Dashboard");
 
                 }

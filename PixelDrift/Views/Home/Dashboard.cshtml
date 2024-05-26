@@ -4,6 +4,13 @@
     ViewBag.Title = "Dashboard";
 }
 
+@if (TempData["Message"] != null)
+{
+    <script type="text/javascript">
+        alert("@TempData["Message"]");
+    </script>
+}
+
 @{
     var data = TempData["UserId"];
 }
@@ -80,14 +87,14 @@
 
 
 <div class="row">
-      @using (Html.BeginForm("DownloadImage", "Home"))
-      {
-    <div class="form-group">
-        <div class="col-sm-4">
-            <button type="submit" class="btn btn-default">Download Photos</button>
+    @using (Html.BeginForm("DownloadImage", "Home"))
+    {
+        <div class="form-group">
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-default">Download Photos</button>
+            </div>
         </div>
-    </div>
-      }
+    }
 </div>
 
 

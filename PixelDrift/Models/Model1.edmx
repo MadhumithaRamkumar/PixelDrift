@@ -28,7 +28,7 @@ warning 6013: The table/view 'pixeldrift_db.dbo.Test' does not have a primary ke
           <Property Name="Password" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="First Name" Type="nchar" MaxLength="10" />
           <Property Name="Last Name" Type="nchar" MaxLength="10" />
-          <Property Name="Email ID" Type="nchar" MaxLength="10" />
+          <Property Name="Email ID" Type="varchar" MaxLength="50" />
           <Property Name="Role" Type="nchar" MaxLength="5" />
           <Property Name="tab_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
@@ -92,7 +92,7 @@ warning 6002: The table/view 'pixeldrift_db.sys.database_firewall_rules' does no
           <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="First_Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Last_Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Email_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Email_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Role" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
           <Property Name="tab_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="ImageSaves" Relationship="pixeldrift_dbModel.fk_tab_Id" FromRole="User_login" ToRole="ImageSave" />
