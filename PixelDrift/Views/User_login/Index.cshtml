@@ -70,10 +70,14 @@
 <br />
 
 
-<br />
-
-<div class="form-group">
-    <div class="col-sm-4">
-        <button type="submit" class="btn btn-default" onClick="history.go(-1); return false;">Home</button>
-    </div>
+<div class="row">
+    @using (Html.BeginForm("Dashboard", "Home"))
+    {
+        <div class="form-group">
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-default">Home</button>
+            </div>
+        </div>
+    }
 </div>
+<br />
