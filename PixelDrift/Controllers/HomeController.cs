@@ -77,12 +77,12 @@ namespace PixelDrift.Controllers
                     return RedirectToAction("DashboardUser");
                 }  // return RedirectToAction("DashboardUser");
             }
-            else
+            else 
             {
                 //return Content("<script language='javascript' type='text/javascript'>alert('Incorrect User Name/Password');</script>");
-
-                //System.Windows.Forms.MessageBox.Show("Incorrect User Name/Password");
-                TempData["Message"] = "Incorrect User Name/Password";
+                if (user != 0)
+                    //System.Windows.Forms.MessageBox.Show("Incorrect User Name/Password");
+                    TempData["Message"] = "Incorrect User Name/Password";
                 return View();
 
             }

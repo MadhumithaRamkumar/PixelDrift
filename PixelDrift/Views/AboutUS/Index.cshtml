@@ -1,0 +1,48 @@
+﻿@model IEnumerable<PixelDrift.Models.AboutU>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>About Us</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    @*<tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th></th>
+        </tr>*@
+    <br />
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <br />
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                </td>*@
+        </tr>
+    }
+
+   
+<div class="row">
+
+    @using (Html.BeginForm("Index", "Home"))
+    {<div class="form-group">
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-default">Login Page</button>
+            </div>
+        </div>
+        <br /> <br />
+    }
+</div>
+</table>

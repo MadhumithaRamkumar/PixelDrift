@@ -10,108 +10,107 @@ using PixelDrift.Models;
 
 namespace PixelDrift.Controllers
 {
-    public class User_loginController : Controller
+    public class AboutUsController : Controller
     {
         private pixeldrift_dbEntities1 db = new pixeldrift_dbEntities1();
 
-        // GET: User_login
+        // GET: AboutUs
         public ActionResult Index()
         {
-            return View(db.User_login.ToList());
+            return View(db.AboutUs.ToList());
         }
 
-        // GET: User_login/Details/5
+        // GET: AboutUs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User_login user_login = db.User_login.Find(id);
-            if (user_login == null)
+            AboutU aboutU = db.AboutUs.Find(id);
+            if (aboutU == null)
             {
                 return HttpNotFound();
             }
-            return View(user_login);
+            return View(aboutU);
         }
 
-        // GET: User_login/Create
+        // GET: AboutUs/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: User_login/Create
+        // POST: AboutUs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "User_Id,Password,First_Name,Last_Name,Email_ID,Role,tab_Id")] User_login user_login)
+        public ActionResult Create([Bind(Include = "Id,Content")] AboutU aboutU)
         {
             if (ModelState.IsValid)
             {
-                db.User_login.Add(user_login);
+                db.AboutUs.Add(aboutU);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(user_login);
+            return View(aboutU);
         }
 
-        // GET: User_login/Edit/5
+        // GET: AboutUs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User_login user_login = db.User_login.Find(id);
-            if (user_login == null)
+            AboutU aboutU = db.AboutUs.Find(id);
+            if (aboutU == null)
             {
                 return HttpNotFound();
             }
-            return View(user_login);
+            return View(aboutU);
         }
 
-        // POST: User_login/Edit/5
+        // POST: AboutUs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-        
-        public ActionResult Edit([Bind(Include = "User_Id,Password,First_Name,Last_Name,Email_ID,Role,tab_Id")] User_login user_login)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Content")] AboutU aboutU)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user_login).State = EntityState.Modified;
+                db.Entry(aboutU).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(user_login);
+            return View(aboutU);
         }
 
-        // GET: User_login/Delete/5
+        // GET: AboutUs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User_login user_login = db.User_login.Find(id);
-            if (user_login == null)
+            AboutU aboutU = db.AboutUs.Find(id);
+            if (aboutU == null)
             {
                 return HttpNotFound();
             }
-            return View(user_login);
+            return View(aboutU);
         }
 
-        // POST: User_login/Delete/5
+        // POST: AboutUs/Delete/5
         [HttpPost, ActionName("Delete")]
-      //  [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User_login user_login = db.User_login.Find(id);
-            db.User_login.Remove(user_login);
+            AboutU aboutU = db.AboutUs.Find(id);
+            db.AboutUs.Remove(aboutU);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
