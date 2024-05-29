@@ -1,0 +1,34 @@
+﻿@model IEnumerable<PixelDrift.Models.ContactU>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Contact Us !!!!</h2>
+<br />
+<br />
+
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+
+            <br /><br />
+        </td>
+
+    </tr>
+}
+
+@using (Html.BeginForm("Index", "Home"))
+{<div class="form-group">
+        <div class="col-sm-4">
+            <button type="submit" class="btn btn-default">Login Page</button>
+        </div>
+    </div>
+    <br />
+    <br />
+}
+
+

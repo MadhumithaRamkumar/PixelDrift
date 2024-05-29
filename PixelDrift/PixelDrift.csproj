@@ -325,7 +325,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="AzureBlobService.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\FaqsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\User_loginController.cs" />
     <Compile Include="Data\AppDbContext.cs" />
@@ -422,6 +424,16 @@
     <Content Include="Views\AboutUS\Details.cshtml" />
     <Content Include="Views\AboutUS\Edit.cshtml" />
     <Content Include="Views\AboutUS\Index.cshtml" />
+    <Content Include="Views\ContactUs\Create.cshtml" />
+    <Content Include="Views\ContactUs\Delete.cshtml" />
+    <Content Include="Views\ContactUs\Details.cshtml" />
+    <Content Include="Views\ContactUs\Edit.cshtml" />
+    <Content Include="Views\ContactUs\Index.cshtml" />
+    <Content Include="Views\Faqs\Create.cshtml" />
+    <Content Include="Views\Faqs\Delete.cshtml" />
+    <Content Include="Views\Faqs\Details.cshtml" />
+    <Content Include="Views\Faqs\Edit.cshtml" />
+    <Content Include="Views\Faqs\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
